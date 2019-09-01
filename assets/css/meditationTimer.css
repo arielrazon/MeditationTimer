@@ -1,0 +1,54 @@
+#page1{
+    background-color: #505153;
+    padding:30px;
+}
+
+#logo{
+    align-content: left;
+}
+
+#centerWelcome{
+    text-align:center;
+    align-content: center;
+    margin:0 auto;
+    width:100%;
+    color:white;
+    font-size:2rem;
+}
+
+#copyright{
+    font-size:0.5rem;
+    margin-left:-.5rem;
+}
+
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+strong, em, b, i, p {
+    font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+#thisIsHowPage{
+    padding:50px;
+    text-align: center;
+}
+
+#roundButton{
+    
+    align-content: center;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    background-color: #390c46;
+    color: white;
+    text-align:center;
+    padding:0.6rem;
+    margin: 0 auto;
+    width:20%;
+}
+
+#copyrightButton{
+    font-size:0.5rem;
+    margin-left:-.25rem;
+}
