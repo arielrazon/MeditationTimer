@@ -88,7 +88,8 @@
     change 
     */
     var newCircle = '<div id="meditationTimer" class="big percircle animate center"></div>'
-
+    const audio = new Audio("./assets/audio/zenchime.mp3");
+    let time = 60;
 
     var meditationTime = 60;
 
@@ -109,6 +110,29 @@
 
         $("#pushHere").html(newCircle)
 
+
+        roundButton.onclick = e => {
+            // mark our audio element as approved by the user
+            audio.play().then(() => { // pause directly
+                audio.pause();
+                audio.currentTime = 0;
+            });
+            countdown();
+
+        };
+
+
+        function countdown() {
+            --time;
+            if (time === 0) return onend();
+            setTimeout(countdown, 1e3);
+        }
+
+
+        function onend() {
+            audio.play(); // now we're safe to play it
+
+        }
 
         $(function () {
             $("#meditationTimer").percircle({
