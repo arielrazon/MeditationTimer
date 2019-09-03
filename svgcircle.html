@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        height: 100%;
+        width: 100%;
+        background-color: #333;
+    }
+
+    #countdown {
+        position: relative;
+        margin: auto;
+        margin-top: 100px;
+        height: 25%;
+        width: 25%;
+        text-align: center;
+    }
+
+    #countdown-number {
+        color: white;
+        display: inline-block;
+        line-height: 25%;
+        padding-top: 3rem;
+
+    }
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(-180deg) rotateZ(-90deg);
+
+    }
+
+
+    svg circle {
+        stroke-dasharray: 251.5px;
+        stroke-dashoffset: 0px;
+        stroke-linecap: round;
+        stroke-width: 4px;
+        stroke: #390c46;
+        fill: none;
+        animation: countdown 60s linear forwards;
+    }
+
+    @keyframes countdown {
+        from {
+            stroke-dashoffset: 0px;
+        }
+
+        to {
+            stroke-dashoffset: 251.5px;
+        }
+    }
+</style>
+
+<div id="countdown">
+    <div id="countdown-number"></div>
+    <svg>
+        <circle r="40   " cx="50%" cy="50%"></circle>
+    </svg>
+</div>
+
+
+<script type="text/javascript">
+    //psuedocode:
+    //
+
+    var countdownNumberEl = document.getElementById('countdown-number');
+    var countdown = 60;
+
+    countdownNumberEl.textContent = countdown;
+    //if countdown>0 then do all the below shit
+
+    setInterval(function () {
+        countdown = --countdown <= 0 ? 60 : countdown;
+
+        countdownNumberEl.textContent = countdown;
+    }, 1000);</script>
+
+    <!--idea for how to code it:
+    make a media query for desktop sized SVG circle from codepen, if phone screen then make it one size, if desktop size make it another
+    
+    -->

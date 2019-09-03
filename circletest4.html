@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="./assets/node_modules/percircle/dist/js/percircle.js"></script>
+    <link rel="stylesheet" href="./assets/node_modules/percircle/dist/css/percircle.css">
+    <style>
+        #container {
+            align-content: center;
+
+
+
+            margin: 0 auto;
+
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        #roundButton {
+
+            align-content: center;
+            -webkit-border-radius: 40px;
+            -moz-border-radius: 40px;
+            border-radius: 40px;
+            background-color: #390c46;
+            color: white;
+            text-align: center;
+            padding: 0.6rem;
+            margin: 0 auto;
+            width: 20%;
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        #copyrightButton {
+            font-size: 0.5rem;
+            margin-left: -.25rem;
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+
+
+        }
+
+        #pushHere {
+            margin: 0 auto;
+            margin-top: 2rem;
+
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="roundButton">
+            Meditate Now <span id="copyrightButton">®</span>
+        </div>
+        <div id="pushHere">
+
+        </div>
+    </div>
+</body>
+
+
+
+<script type="text/javascript">
+
+    /*
+    pseudocode:
+    on click of roundbutton,
+    
+    change 
+    */
+    var newCircle = '<div id="meditationTimer" class="big percircle animate center"></div>'
+
+
+    var meditationTime = 60;
+
+    var meditate = function () {
+        if (meditationTime <= 60) {
+            setInterval(function () {
+                meditationTime--;
+            }, 1000)
+        }
+        else if (meditationTime = 0) {
+            meditationTime = 60
+        }
+    }
+
+
+
+    $(document).on("click", "#roundButton", function () {
+
+        $("#pushHere").html(newCircle)
+
+
+        $(function () {
+            $("#meditationTimer").percircle({
+                perdown: true,
+                secs: 60,
+                progressBarColor: "#390c46",
+                timeUpText: 'Breathe...'
+            });
+        });
+
+    })
+
+
+
+
+
+</script>
+
+
+</html>
