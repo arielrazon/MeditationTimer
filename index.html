@@ -35,6 +35,8 @@
             font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
         }
 
+       
+
         #roundButton {
 
             align-content: center;
@@ -64,6 +66,12 @@
 
             align-content: center;
         }
+
+        @media screen and (max-width: 480px) {
+            #roundButton {
+                width: 50%;
+            }}
+     
     </style>
 </head>
 
@@ -105,47 +113,47 @@
         }
     }
 
-$(document).ready(function(){
+    $(document).ready(function () {
 
-    $("#roundButton").on("click", function () {
+        $("#roundButton").on("click", function () {
 
-        $("#pushHere").html(newCircle)
+            $("#pushHere").html(newCircle)
 
 
-        roundButton.onclick = e => {
-            // mark our audio element as approved by the user
-            audio.play().then(() => { // pause directly
-                audio.pause();
-                audio.currentTime = 0;
+            roundButton.onclick = e => {
+                // mark our audio element as approved by the user
+                audio.play().then(() => { // pause directly
+                    audio.pause();
+                    audio.currentTime = 0;
+                });
+                countdown();
+
+            };
+
+
+            function countdown() {
+                --time;
+                if (time === 0) return onend();
+                setTimeout(countdown, 1e3);
+            }
+
+
+            function onend() {
+                audio.play(); // now we're safe to play it
+
+            }
+
+            $(function () {
+                $("#meditationTimer").percircle({
+                    perdown: true,
+                    secs: 60,
+                    progressBarColor: "#390c46",
+                    timeUpText: 'Breathe...'
+                });
             });
-            countdown();
 
-        };
-
-
-        function countdown() {
-            --time;
-            if (time === 0) return onend();
-            setTimeout(countdown, 1e3);
-        }
-
-
-        function onend() {
-            audio.play(); // now we're safe to play it
-
-        }
-
-        $(function () {
-            $("#meditationTimer").percircle({
-                perdown: true,
-                secs: 60,
-                progressBarColor: "#390c46",
-                timeUpText: 'Breathe...'
-            });
-        });
-
+        })
     })
-})
 
 
 
